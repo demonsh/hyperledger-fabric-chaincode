@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package chaincode
+package example_base
 
-//WARNING - this chaincode's ID is hard-coded in chaincode_example04 to illustrate one way of
-//calling chaincode from a chaincode. If this example is modified, chaincode_example04.go has
+//WARNING - this example_base's ID is hard-coded in chaincode_example04 to illustrate one way of
+//calling example_base from a example_base. If this example is modified, chaincode_example04.go has
 //to be modified as well with the new ID of chaincode_example02.
-//chaincode_example05 show's how chaincode ID can be passed in as a parameter instead of
+//chaincode_example05 show's how example_base ID can be passed in as a parameter instead of
 //hard-coding.
 
 import (
@@ -45,7 +45,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 		return shim.Error("Incorrect number of arguments. Expecting 4")
 	}
 
-	// Initialize the chaincode
+	// Initialize the example_base
 	A = args[0]
 	Aval, err = strconv.Atoi(args[1])
 	if err != nil {
@@ -163,7 +163,7 @@ func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string
 	return shim.Success(nil)
 }
 
-// query callback representing the query of a chaincode
+// query callback representing the query of a example_base
 func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var A string // Entities
 	var err error
@@ -194,6 +194,6 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
-		fmt.Printf("Error starting Simple chaincode: %s", err)
+		fmt.Printf("Error starting Simple example_base: %s", err)
 	}
 }
