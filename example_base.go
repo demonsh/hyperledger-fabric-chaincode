@@ -45,3 +45,10 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	return shim.Success(nil)
 }
 
+func main() {
+	err := shim.Start(new(SimpleChaincode))
+	if err != nil {
+		fmt.Printf("Error starting Simple chaincode: %s", err)
+	}
+}
+
